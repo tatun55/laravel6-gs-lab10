@@ -1,3 +1,5 @@
+# Laravel授業用
+
 ## 使い方
 
 ### 1. 好きなフォルダで`git clone`、またはZipダウンロードして解凍する
@@ -21,8 +23,11 @@ make init
 ### 4. ブラウザでアクセスする
 
 ```
-http://localhost/ # Laravel
-http://localhost:8080/ # phpmyadmin
+# Laravel
+http://localhost/
+
+# phpmyadmin
+http://localhost:8080/
 ```
 
 # docker-laravel 🐳

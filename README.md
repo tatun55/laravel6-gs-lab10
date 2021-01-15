@@ -21,7 +21,7 @@ make init
 ### 4. ブラウザでアクセスする
 
 ```
-http://localhost/ # Larave
+http://localhost/ # Laravel
 http://localhost:8080/ # phpmyadmin
 ```
 

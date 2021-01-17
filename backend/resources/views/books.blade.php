@@ -81,17 +81,12 @@
 
                                 <!-- 本: 更新ボタン -->
                                 <td>
-                                    <form action="{{ url('booksedit/'.$book->id) }}" method="POST">
-                                        {{ csrf_field() }}
-                                        <button type="submit" class="btn btn-primary">
-                                            更新
-                                        </button>
-                                    </form>
+                                    <a class="btn btn-primary" href="{{ url('books/'. $book->id . '/edit') }}">更新</a>
                                 </td>
 
 		                    	<!-- 本: 削除ボタン -->
                                 <td>
-                                    <form action="{{ url('book/'.$book->id) }}" method="POST">
+                                    <form action="{{ url('books/'.$book->id) }}" method="POST">
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE') }}
 

@@ -57,11 +57,8 @@ class BooksController extends Controller
                 ->withErrors($validator);
         }
         $books = Book::find($request->id);
+        $books->fill($request->all());
         $books->user_id = Auth::user()->id;
-        $books->item_name   = $request->item_name;
-        $books->item_number = $request->item_number;
-        $books->item_amount = $request->item_amount;
-        $books->published   = $request->published;
         $books->save();
         return redirect('/');
     }
@@ -95,12 +92,9 @@ class BooksController extends Controller
 
         // 本作成処理...
         $books = new Book;
+        $books->fill($request->all());
         $books->user_id = Auth::user()->id;
-        $books->item_name = $request->item_name;
-        $books->item_number = $request->item_number;
-        $books->item_amount = $request->item_amount;
         $books->item_img = $filename;
-        $books->published = $request->published;
         $books->save();
 
         return redirect('/');

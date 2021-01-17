@@ -60,3 +60,5 @@ fabric.properties
 
 # Docker Compose
 .env
+
+backend/public/upload

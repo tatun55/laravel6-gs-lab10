@@ -32,7 +32,7 @@
         <!-- published -->
         <div class="form-group">
            <label for="published">published</label>
-            <input type="datetime" id="published" name="published" class="form-control" value="{{$book->published}}"/>
+            <input type="date" id="published" name="published" class="form-control" value="{{$book->published->format('Y-m-d')}}"/>
         </div>
         <!--/ published -->
 

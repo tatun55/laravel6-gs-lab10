@@ -78,6 +78,7 @@
                                     <div>{{ $book->item_name }}</div>
                                     <div> <img src="upload/{{$book->item_img}}" width="100"></div>
                                     <div>合計金額 : {{ $book->total_price }}</div>
+                                    <div>公開日 : {{ $book->published->format('Y年m月d日') }}</div>
                                 </td>
 
                                 <!-- 本: 更新ボタン -->

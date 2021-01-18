@@ -18,4 +18,9 @@ class Book extends Model
     {
         return $this->item_number * $this->item_amount;
     }
+
+    public function comments()
+    {
+        return $this->hasMany('App\BookComment');
+    }
 }

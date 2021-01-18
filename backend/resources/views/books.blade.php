@@ -77,6 +77,7 @@
                                 <td class="table-text">
                                     <div>{{ $book->item_name }}</div>
                                     <div> <img src="upload/{{$book->item_img}}" width="100"></div>
+                                    <div>合計金額 : {{ $book->total_price }}</div>
                                 </td>
 
                                 <!-- 本: 更新ボタン -->

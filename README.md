@@ -18,7 +18,7 @@ git clone https://github.com/tatun55/laravel6-gs-lab10
 cd laravel6-gs-lab10
 ```
 
-### 3. dockerコンテナを起動 ＆ Laravelプロジェクトを初期化
+### 3. 以下のコマンドを入力 (dockerコンテナを起動 ＆ Laravelプロジェクトを初期化している)
 
 ```
 make init

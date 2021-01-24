@@ -35,6 +35,11 @@
                     <label for="published" class="col-sm-3 control-label">公開日</label>
                     <input type="date" name="published" class="form-control">
                 </div>
+
+                <!-- <div class="form-group col-md-6">
+                    <label for="aaa" class="col-sm-3 control-label">あああ</label>
+                    <input type="text" name="aaa" class="form-control">
+                </div> -->
             </div>
 
             <!-- file 追加 -->

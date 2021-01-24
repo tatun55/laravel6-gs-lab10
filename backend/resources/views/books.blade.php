@@ -21,6 +21,11 @@
                 </div>
 
                 <div class="form-group col-md-6">
+                    <label for="alphabet_title" class="col-sm-3 control-label">英語タイトル</label>
+                    <input type="text" name="alphabet_title" class="form-control">
+                </div>
+
+                <div class="form-group col-md-6">
                     <label for="amount" class="col-sm-3 control-label">金額</label>
                     <input type="text" name="item_amount" class="form-control">
                 </div>
@@ -81,6 +86,7 @@
                                 <!-- 本タイトル -->
                                 <td class="table-text">
                                     <div>{{ $book->item_name }}</div>
+                                    <div>{{ $book->alphabet_title }}</div>
                                     <div> <img src="upload/{{$book->item_img}}" width="100"></div>
                                     <div>合計金額 : {{ $book->total_price }}</div>
                                     <div>公開日 : {{ $book->published->format('Y年m月d日') }}</div>

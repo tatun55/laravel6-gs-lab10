@@ -26,6 +26,11 @@
                 </div>
 
                 <div class="form-group col-md-6">
+                    <label for="isbn" class="col-sm-3 control-label">ISBN</label>
+                    <input type="text" name="isbn" class="form-control">
+                </div>
+
+                <div class="form-group col-md-6">
                     <label for="amount" class="col-sm-3 control-label">金額</label>
                     <input type="text" name="item_amount" class="form-control">
                 </div>
@@ -87,6 +92,8 @@
                                 <td class="table-text">
                                     <div>{{ $book->item_name }}</div>
                                     <div>{{ $book->alphabet_title }}</div>
+                                    <div>ISBN10 : {{ $book->isbn }}</div>
+                                    <div>ISBN13 : {{ $book->isbn13 }}</div>
                                     <div> <img src="upload/{{$book->item_img}}" width="100"></div>
                                     <div>合計金額 : {{ $book->total_price }}</div>
                                     <div>公開日 : {{ $book->published->format('Y年m月d日') }}</div>

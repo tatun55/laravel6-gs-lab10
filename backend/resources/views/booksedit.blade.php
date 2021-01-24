@@ -24,6 +24,13 @@
 
         <!-- item_number -->
         <div class="form-group">
+           <label for="isbn">ISBN</label>
+        <input type="text" id="isbn" name="isbn" class="form-control" value="{{$book->isbn}}">
+        </div>
+        <!--/ item_number -->
+
+        <!-- item_number -->
+        <div class="form-group">
            <label for="item_number">Number</label>
         <input type="text" id="item_number" name="item_number" class="form-control" value="{{$book->item_number}}">
         </div>

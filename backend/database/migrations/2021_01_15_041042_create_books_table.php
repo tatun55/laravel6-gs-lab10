@@ -18,6 +18,7 @@ class CreateBooksTable extends Migration
             $table->integer('user_id');
             $table->string('item_name');
             $table->string('alphabet_title');
+            $table->string('isbn', 10);
             $table->integer('item_number');
             $table->integer('item_amount');
             $table->string('item_img');

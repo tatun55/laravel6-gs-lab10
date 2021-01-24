@@ -48,6 +48,7 @@ class BooksController extends Controller
             'id' => 'required',
             'item_name' => 'required|min:3|max:255',
             'alphabet_title' => 'required|min:3|max:255|alpha_num',
+            'isbn' => 'required',
             'item_number' => 'required|min:1|max:3',
             'item_amount' => 'required|min:0|max:6',
             'published' => 'required',
@@ -71,6 +72,8 @@ class BooksController extends Controller
         //バリデーション
         $validator = Validator::make($request->all(), [
             'item_name' => 'required|min:3|max:255',
+            'alphabet_title' => 'required|min:3|max:255|alpha_num',
+            'isbn' => 'required',
             'item_number' => 'required|min:1|max:3',
             'item_amount' => 'required|max:6',
             'published' => 'required',

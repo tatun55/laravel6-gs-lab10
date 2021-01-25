@@ -43,22 +43,8 @@ class BooksController extends Controller
     }
 
     //更新
-    public function update(Request $request)
+    public function update(BookRequest $request)
     {
-        //バリデーション
-        $validator = Validator::make($request->all(), [
-            'id' => 'required',
-            'item_name' => 'required|min:3|max:255',
-            'item_number' => 'required|min:1|max:3',
-            'item_amount' => 'required|min:0|max:6',
-            'published' => 'required',
-        ]);
-        //バリデーション:エラー
-        if ($validator->fails()) {
-            return redirect('/')
-                ->withInput()
-                ->withErrors($validator);
-        }
         $books = Book::find($request->id);
         $books->fill($request->all());
         $books->user_id = Auth::user()->id;

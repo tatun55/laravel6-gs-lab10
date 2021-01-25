@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 //使うClassを宣言:自分で追加
 use App\Book;   //Bookモデルを使えるようにする
+use App\Http\Requests\BookRequest;
 use Validator;  //バリデーションを使えるようにする
 use Auth;       //認証モデルを使用する
 use Carbon\Carbon;
@@ -66,22 +67,8 @@ class BooksController extends Controller
     }
 
     //登録
-    public function store(Request $request)
+    public function store(BookRequest $request)
     {
-        //バリデーション
-        $validator = Validator::make($request->all(), [
-            'item_name' => 'required|string|min:3|max:255',
-            'item_number' => 'required|integer|min:1|max:100',
-            'item_amount' => 'required|integer|min:100|max:100000',
-            'published' => 'required|date|before_or_equal:' . Carbon::today(),
-            'item_img' => 'file|image|dimensions:min_width=100,min_height=100',
-        ]);
-        //バリデーション:エラー
-        if ($validator->fails()) {
-            return redirect('/')
-                ->withInput()
-                ->withErrors($validator);
-        }
         //file 取得
         $file = $request->file('item_img'); //file が空かチェック
         if (!empty($file)) {

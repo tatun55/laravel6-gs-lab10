@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Book;   //Bookモデルを使えるようにする
 use Validator;  //バリデーションを使えるようにする
 use Auth;       //認証モデルを使用する
+use Carbon\Carbon;
 
 class BooksController extends Controller
 {
@@ -72,7 +73,7 @@ class BooksController extends Controller
             'item_name' => 'required|string|min:3|max:255',
             'item_number' => 'required|integer|min:1|max:100',
             'item_amount' => 'required|integer|min:100|max:100000',
-            'published' => 'required',
+            'published' => 'required|date|before_or_equal:' . Carbon::today(),
         ]);
         //バリデーション:エラー
         if ($validator->fails()) {

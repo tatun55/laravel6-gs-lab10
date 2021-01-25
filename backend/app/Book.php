@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Book extends Model
 {
-    protected $fillable = ['item_name', 'item_number', 'item_amount', 'published'];
+    protected $fillable = ['item_name', 'item_number', 'item_amount', 'published', 'alphabet_title'];
     protected $appends = ['total_price'];
 
     protected $casts = [

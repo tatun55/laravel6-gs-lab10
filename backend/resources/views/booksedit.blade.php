@@ -15,6 +15,13 @@
         </div>
         <!--/ item_name -->
 
+        <!-- alphabet_title -->
+        <div class="form-group">
+           <label for="alphabet_title">Title</label>
+           <input type="text" id="item_name" name="alphabet_title" class="form-control" value="{{$book->alphabet_title}}">
+        </div>
+        <!--/ alphabet_title -->
+
         <!-- item_number -->
         <div class="form-group">
            <label for="item_number">Number</label>

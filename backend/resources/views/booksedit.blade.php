@@ -22,6 +22,13 @@
         </div>
         <!--/ alphabet_title -->
 
+        <!-- katakana_title -->
+        <div class="form-group">
+           <label for="katakana_title">Title</label>
+           <input type="text" name="katakana_title" class="form-control" value="{{$book->katakana_title}}">
+        </div>
+        <!--/ katakana_title -->
+
         <!-- item_number -->
         <div class="form-group">
            <label for="item_number">Number</label>

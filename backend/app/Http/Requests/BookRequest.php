@@ -13,6 +13,7 @@ class BookRequest extends FormRequest
         $rules = [
             'item_number' => 'required|integer|min:1|max:100',
             'alphabet_title' => 'required|string|min:3|max:255|alpha_dash',
+            'katakana_title' => 'required|string|min:3|max:255|katakana',
             'item_amount' => 'required|integer|min:100|max:100000',
             'published' => 'required|date|before_or_equal:' . Carbon::today(),
         ];

@@ -42,4 +42,11 @@ class BookRequest extends FormRequest
 
         return $rules;
     }
+
+    public function messages()
+    {
+        return [
+            'published.before_or_equal' => "公開日には" . Carbon::today()->format('Y年n月j日') . "以前を指定してください",
+        ];
+    }
 }

@@ -21,12 +21,20 @@ class BooksController extends Controller
     // }
 
     //本ダッシュボード表示
-    public function index()
+    public function index(Request $request)
     {
         $books = Book::where('user_id', Auth::user()->id)
             ->orderBy('id', 'asc')
-            ->withCount('comments')
-            ->paginate(3);
+            ->withCount('comments');
+        !empty($request->item_name) && $books = $books->where('item_name', 'like', '%' . $request->item_name . '%');
+        !empty($request->alphabet_title) && $books = $books->where('item_name', 'like', '%' . $request->alphabet_title . '%');
+        !empty($request->item_amount_from) && $books = $books->where('item_amount', '>=', $request->item_amount_from);
+        !empty($request->item_amount_to) && $books = $books->where('item_amount', '<=', $request->item_amount_to);
+        !empty($request->item_number_from) && $books = $books->where('item_number', '>=', $request->item_number_from);
+        !empty($request->item_number_to) && $books = $books->where('item_number', '<=', $request->item_number_to);
+        !empty($request->published_from) && $books = $books->whereDate('published', '>=', $request->published_from);
+        !empty($request->published_to) && $books = $books->whereDate('published', '<=', $request->published_to);
+        $books = $books->paginate(3);
         return view('books', [
             'books' => $books
         ]);

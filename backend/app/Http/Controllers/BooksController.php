@@ -23,6 +23,31 @@ class BooksController extends Controller
     //本ダッシュボード表示
     public function index()
     {
+        $booksQ1 = Book::where('item_amount', '<=', 300)->get();
+        $booksQ2 = Book::where('item_number', '>', 99)->get();
+
+        echo 'Q1';
+        foreach ($booksQ1 as $book) {
+            dump([
+                'ID' => $book->id,
+                'タイトル' => $book->item_name,
+                '数量' => $book->item_number,
+                '金額' => $book->item_amount,
+                '公開日' => $book->published->format('Y-m-d'),
+            ]);
+        }
+        echo 'Q2';
+        foreach ($booksQ2 as $book) {
+            dump([
+                'ID' => $book->id,
+                'タイトル' => $book->item_name,
+                '数量' => $book->item_number,
+                '金額' => $book->item_amount,
+                '公開日' => $book->published->format('Y-m-d'),
+            ]);
+        }
+        exit;
+
         $books = Book::where('user_id', Auth::user()->id)
             ->orderBy('id', 'asc')
             ->withCount('comments')

@@ -24,7 +24,7 @@ class BooksController extends Controller
     public function index()
     {
         $books = Book::where('user_id', Auth::user()->id)
-            ->orderBy('created_at', 'asc')
+            ->orderBy('id', 'asc')
             ->withCount('comments')
             ->paginate(3);
         return view('books', [

@@ -23,6 +23,28 @@ class BooksController extends Controller
     //本ダッシュボード表示
     public function index()
     {
+        $book2 = Book::find(2);
+
+        $book111 = Book::where('item_name', 'タイトル111')->first();
+
+        dump([
+            'idが2の本' => [
+                'ID' => $book2->id,
+                'タイトル' => $book2->item_name,
+                '数量' => $book2->item_number,
+                '金額' => $book2->item_amount,
+                '公開日' => $book2->published->format('Y-m-d'),
+            ],
+            'タイトルが"タイトル111"の本' => [
+                'ID' => $book111->id,
+                'タイトル' => $book111->item_name,
+                '数量' => $book111->item_number,
+                '金額' => $book111->item_amount,
+                '公開日' => $book111->published->format('Y-m-d'),
+            ],
+        ]);
+        exit;
+
         $books = Book::where('user_id', Auth::user()->id)
             ->orderBy('id', 'asc')
             ->withCount('comments')

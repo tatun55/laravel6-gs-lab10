@@ -23,17 +23,6 @@ class BooksController extends Controller
     //本ダッシュボード表示
     public function index()
     {
-        $valueQ1 = Book::whereIn('id', [45, 55, 65])->sum('item_amount');
-        $valueQ2 = Book::whereBetween('item_amount', [1000, 10000])->avg('item_number');
-
-        echo 'Q1';
-        dump($valueQ1);
-
-        echo 'Q2';
-        dump($valueQ2);
-        exit;
-
-
         $books = Book::where('user_id', Auth::user()->id)
             ->orderBy('id', 'asc')
             ->withCount('comments')

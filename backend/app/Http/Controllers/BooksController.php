@@ -23,30 +23,16 @@ class BooksController extends Controller
     //本ダッシュボード表示
     public function index()
     {
-        $booksQ1 = Book::where('item_name', 'like', '%99%')->get();
-        $booksQ2 = Book::whereYear('published', 2020)->whereMonth('published', 1)->get();
+        $valueQ1 = Book::whereIn('id', [45, 55, 65])->sum('item_amount');
+        $valueQ2 = Book::whereBetween('item_amount', [1000, 10000])->avg('item_number');
 
         echo 'Q1';
-        foreach ($booksQ1 as $book) {
-            dump([
-                'ID' => $book->id,
-                'タイトル' => $book->item_name,
-                '数量' => $book->item_number,
-                '金額' => $book->item_amount,
-                '公開日' => $book->published->format('Y-m-d'),
-            ]);
-        }
+        dump($valueQ1);
+
         echo 'Q2';
-        foreach ($booksQ2 as $book) {
-            dump([
-                'ID' => $book->id,
-                'タイトル' => $book->item_name,
-                '数量' => $book->item_number,
-                '金額' => $book->item_amount,
-                '公開日' => $book->published->format('Y-m-d'),
-            ]);
-        }
+        dump($valueQ2);
         exit;
+
 
         $books = Book::where('user_id', Auth::user()->id)
             ->orderBy('id', 'asc')

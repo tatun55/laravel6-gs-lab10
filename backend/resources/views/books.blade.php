@@ -58,8 +58,56 @@
     </form>
 </div>
 
+<!-- 検索フォーム -->
+<div class="card-body">
+    <div class="card-title">
+        ​検索フォーム
+    </div>
+    ​<form action="{{ url('books') }}" method="get" class="form-horizontal">
+        {{ csrf_field() }}
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                ​<label for="book" class="col-sm-3 control-label">Book</label>
+                ​<input type="text" name="item_name" class="form-control">
+            </div>
 
-
+            <div class="form-group col-md-6">
+                ​<label for="alphabet_title" class="col-sm-3 control-label">English</label>
+                ​<input type="text" name="alphabet_title" class="form-control">
+            ​</div>
+            <div class="form-group col-md-6">
+                ​<label for="amount" class="col-sm-3 control-label">金額</label>
+                <div class="d-flex align-items-center">
+                    ​<input type="text" name="item_amount_from" class="form-control">
+                    ​　〜　　
+                    ​<input type="text" name="item_amount_to" class="form-control">
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                ​<label for="number" class="col-sm-3 control-label">数</label>
+                <div class="d-flex align-items-center">
+                    ​<input type="text" name="item_number_from" class="form-control">
+                    ​　〜　　
+                    ​<input type="text" name="item_number_to" class="form-control">
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                ​<label for="published" class="col-sm-3 control-label">公開日</label>
+                <div class="d-flex align-items-center">
+                    ​<input type="date" name="published_from" class="form-control">
+                    ​　〜　　
+                    ​<input type="date" name="published_to" class="form-control">
+                ​</div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-sm-offset-3 col-sm-6">
+                ​<button type="submit" class="btn btn-primary">​検索</button>
+            </div>
+        </div>
+    </form>
+</div>
+<!-- 検索フォーム -->
 
 <!-- Book: 既に登録されてる本のリスト -->
 <!-- 現在の本 -->

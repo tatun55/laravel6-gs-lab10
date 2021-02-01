@@ -23,8 +23,8 @@ class BooksController extends Controller
     //本ダッシュボード表示
     public function index()
     {
-        $booksQ1 = Book::where('item_amount', '<=', 300)->get();
-        $booksQ2 = Book::where('item_number', '>', 99)->get();
+        $booksQ1 = Book::where('item_name', 'like', '%99%')->get();
+        $booksQ2 = Book::whereYear('published', 2020)->whereMonth('published', 1)->get();
 
         echo 'Q1';
         foreach ($booksQ1 as $book) {

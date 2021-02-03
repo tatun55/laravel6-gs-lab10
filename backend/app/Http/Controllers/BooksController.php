@@ -35,8 +35,16 @@ class BooksController extends Controller
         !empty($request->published_from) && $books = $books->whereDate('published', '>=', $request->published_from);
         !empty($request->published_to) && $books = $books->whereDate('published', '<=', $request->published_to);
         $books = $books->paginate(3);
+
+        $book3minTotals = BookTotal::where('period', 3)->orderBy('created_at', 'desc')->limit(5)->get();
+        $book5minTotals = BookTotal::where('period', 5)->orderBy('created_at', 'desc')->limit(5)->get();
+        $book10minTotals = BookTotal::where('period', 10)->orderBy('created_at', 'desc')->limit(5)->get();
+
         return view('books', [
-            'books' => $books
+            'books' => $books,
+            'book_3min_totals' => $book3minTotals,
+            'book_5min_totals' => $book5minTotals,
+            'book_10min_totals' => $book10minTotals,
         ]);
     }
 
@@ -89,5 +97,10 @@ class BooksController extends Controller
     {
         $book->delete();
         return redirect('/');
+    }
+
+    public function total()
+    {
+        return view('bookstotal');
     }
 }

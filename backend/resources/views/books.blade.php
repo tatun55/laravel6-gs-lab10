@@ -1,6 +1,5 @@
 <!-- resources/views/books.blade.php -->
-@extends('layouts.app')
-@section('content')
+@extends('layouts.app') @section('content')
 <!-- Bootstrapの定形コード… -->
 <div class="card-body">
     <div class="card-title">
@@ -63,41 +62,39 @@
     <div class="card-title">
         ​検索フォーム
     </div>
-    ​<form action="{{ url('books') }}" method="get" class="form-horizontal">
+    ​
+    <form action="{{ url('books') }}" method="get" class="form-horizontal">
         {{ csrf_field() }}
         <div class="form-row">
             <div class="form-group col-md-6">
-                ​<label for="book" class="col-sm-3 control-label">Book</label>
-                ​<input type="text" name="item_name" class="form-control">
+                ​<label for="book" class="col-sm-3 control-label">Book</label> ​
+                <input type="text" name="item_name" class="form-control">
             </div>
 
             <div class="form-group col-md-6">
-                ​<label for="alphabet_title" class="col-sm-3 control-label">English</label>
-                ​<input type="text" name="alphabet_title" class="form-control">
-            ​</div>
+                ​<label for="alphabet_title" class="col-sm-3 control-label">English</label> ​
+                <input type="text" name="alphabet_title" class="form-control"> ​
+            </div>
             <div class="form-group col-md-6">
                 ​<label for="amount" class="col-sm-3 control-label">金額</label>
                 <div class="d-flex align-items-center">
-                    ​<input type="text" name="item_amount_from" class="form-control">
-                    ​　〜　　
-                    ​<input type="text" name="item_amount_to" class="form-control">
+                    ​<input type="text" name="item_amount_from" class="form-control"> ​　〜　　 ​
+                    <input type="text" name="item_amount_to" class="form-control">
                 </div>
             </div>
             <div class="form-group col-md-6">
                 ​<label for="number" class="col-sm-3 control-label">数</label>
                 <div class="d-flex align-items-center">
-                    ​<input type="text" name="item_number_from" class="form-control">
-                    ​　〜　　
-                    ​<input type="text" name="item_number_to" class="form-control">
+                    ​<input type="text" name="item_number_from" class="form-control"> ​　〜　　 ​
+                    <input type="text" name="item_number_to" class="form-control">
                 </div>
             </div>
             <div class="form-group col-md-6">
                 ​<label for="published" class="col-sm-3 control-label">公開日</label>
                 <div class="d-flex align-items-center">
-                    ​<input type="date" name="published_from" class="form-control">
-                    ​　〜　　
-                    ​<input type="date" name="published_to" class="form-control">
-                ​</div>
+                    ​<input type="date" name="published_from" class="form-control"> ​　〜　　 ​
+                    <input type="date" name="published_to" class="form-control"> ​
+                </div>
             </div>
         </div>
         <div class="form-row">
@@ -142,8 +139,7 @@
                     <!-- 本: 削除ボタン -->
                     <td>
                         <form action="{{ url('books/'.$book->id) }}" method="POST">
-                            {{ csrf_field() }}
-                            {{ method_field('DELETE') }}
+                            {{ csrf_field() }} {{ method_field('DELETE') }}
 
                             <button type="submit" class="btn btn-danger">
                                 削除
@@ -166,6 +162,39 @@
 </div>
 @endif
 
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">直近</th>
+            <th scope="col">1分前</th>
+            <th scope="col">2分前</th>
+            <th scope="col">3分前</th>
+            <th scope="col">4分前</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <th scope="row">3 min</th>
+            @foreach ($book_3min_totals as $book_3min_total)
+            <td>{{$book_3min_total->amount}}</td>
+            @endforeach
+        </tr>
+        <tr>
+            <th scope="row">5 min</th>
+            @foreach ($book_5min_totals as $book_5min_total)
+            <td>{{$book_5min_total->amount}}</td>
+            @endforeach
+        </tr>
+        <tr>
+            <th scope="row">10 min</th>
+            @foreach ($book_10min_totals as $book_10min_total)
+            <td>{{$book_10min_total->amount}}</td>
+            @endforeach
+        </tr>
+    </tbody>
+</table>
 
 
 @endsection
